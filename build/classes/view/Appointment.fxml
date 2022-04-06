@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="1320.0" style="-fx-background-color: #283545;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AppointmentController">
+   <children>
+      <Label fx:id="appointmentLabel" layoutX="539.0" layoutY="31.0" text="Appointments" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="appointmentTable" layoutX="63.0" layoutY="153.0" prefHeight="426.0" prefWidth="709.0" style="-fx-background-color: #8a97ab; -fx-border-color: black; -fx-border-radius: 3;">
+        <columns>
+            <TableColumn fx:id="customerColumn" prefWidth="130.0" text="Customer" />
+            <TableColumn fx:id="appointmentIdColumn" prefWidth="50.0" text="Id" />
+          <TableColumn fx:id="typeColumn" editable="false" prefWidth="130.0" text="Type" />
+            <TableColumn fx:id="startColumn" minWidth="0.0" prefWidth="150.0" text="Start" />
+            <TableColumn fx:id="endColumn" prefWidth="150.0" text="End" />
+            <TableColumn fx:id="contactColumn" prefWidth="100.0" text="Contact" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="256.0" layoutY="595.0" prefHeight="55.0" prefWidth="322.0" spacing="30.0">
+         <children>
+            <Button fx:id="handleNewButton" mnemonicParsing="false" onAction="#handleNew" prefWidth="72.0" text="New">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="handleUpdateButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleUpdate" text="Update">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="handleDeleteButton" layoutX="75.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDelete" prefWidth="72.0" text="Delete">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Button fx:id="handleBackButton" layoutX="1203.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleBack" prefWidth="72.0" text="Back">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" layoutX="63.0" layoutY="107.0" prefHeight="42.0" prefWidth="289.0" spacing="20.0">
+         <children>
+            <RadioButton fx:id="weekRadio" mnemonicParsing="false" onAction="#handleWeek" selected="true" text="Week" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="viewToggle" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="monthRadio" mnemonicParsing="false" onAction="#handleMonth" text="Month" textFill="WHITE" toggleGroup="$viewToggle">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="allRadio" layoutX="74.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleAll" selected="true" text="All" textFill="WHITE" toggleGroup="$viewToggle">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </RadioButton>
+         </children>
+      </HBox>
+      <AnchorPane id="AnchorPane" layoutX="810.0" layoutY="107.0" maxWidth="-Infinity" prefHeight="468.0" prefWidth="429.0">
+         <children>
+            <GridPane layoutX="49.0" layoutY="39.0" maxWidth="-Infinity" prefHeight="357.0" prefWidth="380.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.0" minWidth="10.0" prefWidth="156.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="275.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="customerLabel" text="Customer" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="typeLabel" text="Type" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="dateLabel" text="Date" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="startLabel" text="Start Time" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="endLabel" text="End Time" textFill="WHITE" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="customerField" editable="false" maxWidth="220.0" prefHeight="31.0" prefWidth="220.0" promptText="Customer Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <ComboBox fx:id="typeCombo" prefWidth="220.0" promptText="Choose a Type" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ComboBox>
+                  <ComboBox fx:id="startTimeCombo" prefHeight="31.0" prefWidth="160.0" promptText="Start Time" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ComboBox>
+                  <ComboBox fx:id="endTimeCombo" prefHeight="31.0" prefWidth="160.0" promptText="End Time" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ComboBox>
+                  <DatePicker fx:id="datePicker" promptText="Choose a Date" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </DatePicker>
+                  <Label fx:id="customerLabel1" layoutX="10.0" layoutY="87.0" text="Contact" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="contactCombo" layoutX="140.0" layoutY="145.0" prefWidth="220.0" promptText="Choose a Contact" GridPane.columnIndex="1">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ComboBox>
+               </children>
+            </GridPane>
+            <Button fx:id="handleSaveButton" layoutX="203.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleSave" prefWidth="72.0" text="Save">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>
