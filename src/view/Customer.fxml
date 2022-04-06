@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1361.0" style="-fx-background-color: #283545;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerController">
+   <children>
+      <HBox alignment="CENTER" layoutX="287.0" layoutY="588.0" prefHeight="80.0" prefWidth="400.0" spacing="60.0">
+         <children>
+            <Button fx:id="handleNewButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleNew" prefWidth="72.0" text="New">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateButton" layoutX="75.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleUpdate" text="Update">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteButton" alignment="CENTER" layoutX="140.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="31.0" prefWidth="72.0" text="Delete">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Label fx:id="customersLabel" alignment="TOP_CENTER" layoutX="670.0" layoutY="43.0" text="Customers" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="customerTable" layoutX="44.0" layoutY="125.0" maxHeight="700.0" maxWidth="984.0" prefHeight="450.0" prefWidth="823.0" style="-fx-background-color: #8a97ab; -fx-border-radius: 3; -fx-border-color: black;">
+        <columns>
+          <TableColumn fx:id="idColumn" minWidth="53.99998474121094" prefWidth="53.99998474121094" text="Id" />
+          <TableColumn fx:id="nameColumn" minWidth="142.99996948242188" prefWidth="151.99996948242188" text="Name" />
+            <TableColumn fx:id="addressColumn" minWidth="151.99996948242188" prefWidth="151.99996948242188" text="Address" />
+            <TableColumn fx:id="cityColumn" minWidth="104.0" prefWidth="104.0" text="City" />
+            <TableColumn fx:id="countryColumn" minWidth="93.0" prefWidth="122.0" text="Country" />
+            <TableColumn fx:id="postalCodeColumn" minWidth="117.0" prefWidth="117.0" text="Postal Code" />
+            <TableColumn fx:id="phoneColumn" minWidth="116.0" prefWidth="117.0" text="Phone" />
+        </columns>
+      </TableView>
+      <Button fx:id="handleBackButton" layoutX="1260.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleBack" prefWidth="72.0" text="Back">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <AnchorPane id="AnchorPane" layoutX="908.0" layoutY="88.0" prefHeight="580.0" prefWidth="484.0">
+         <children>
+            <GridPane layoutX="24.0" layoutY="80.0" maxHeight="404.0" prefHeight="404.0" prefWidth="400.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" maxWidth="114.0" minWidth="10.0" prefWidth="105.0" />
+                  <ColumnConstraints maxWidth="300.0" minWidth="10.0" prefWidth="289.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="nameLabel" alignment="CENTER_RIGHT" text="Name" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="addressLabel" text="Address" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cityLabel" text="City" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="countryLabel" text="Country" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="zipLabel" text="Postal Code" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="phoneLabel" text="Phone" textFill="WHITE" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nameField" promptText="Name" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="addressField" layoutX="10.0" layoutY="20.0" promptText="Address" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <ComboBox fx:id="cityCombo" onAction="#setCountry" prefWidth="269.0" promptText="Choose a City" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <TextField fx:id="countryField" editable="false" layoutX="10.0" layoutY="20.0" promptText="Country" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="postalCodeField" layoutX="90.0" layoutY="120.0" promptText="Postal Code" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField fx:id="phoneField" layoutX="114.0" layoutY="206.0" maxWidth="280.0" prefWidth="280.0" promptText="Phone #" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+            </GridPane>
+            <Label fx:id="newCustomerLabel" alignment="TOP_CENTER" layoutX="202.0" layoutY="35.0" text="Customer " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="saveButton" layoutX="203.0" layoutY="514.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="31.0" prefWidth="115.0" text="Save">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>
